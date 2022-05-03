@@ -14,6 +14,14 @@ public class AttackSystem : MonoBehaviour
     public float Timer;
     public float WaitingTime;
 
+
+    public bool isDelay;
+    public GameObject Test;
+
+    private bool isAttack;
+    public float delayTime;
+
+
     //public void Def()
     //{
     //    if(type == Type.Melee)
@@ -22,6 +30,11 @@ public class AttackSystem : MonoBehaviour
     //        StartCoroutine("Swing");
     //    }
     //}
+
+    private void Awake()
+    {
+        isAttack = false;
+    }
 
     private void Start()
     {
@@ -47,6 +60,21 @@ public class AttackSystem : MonoBehaviour
 
     }
 
+    IEnumerator CountAttackDelay()
+    {
+        isDelay = true;
+
+        GameObject obj = Instantiate(Test, transform.position, Quaternion.identity);
+        //obj.transform.parent = gameObject.transform;
+        //obj.transform.position = rigidbody.transform.position;
+        obj.transform.rotation = gameObject.transform.rotation;
+
+
+        yield return new WaitForSeconds(0.5f);
+        isAttack = false;
+        yield return new WaitForSeconds(delayTime);
+        isDelay = false;
+    }
     //private void OnTriggerEnter(Collider other)
     //{
 

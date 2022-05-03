@@ -22,7 +22,7 @@ public class CameraSystem : MonoBehaviour
         public float _elevation;
         
         public float _minRadius = 3f;
-        public float _maxRadius = 10f;
+        public float _maxRadius = 8f;
 
         public float minAzimuth = 0f;
         private float _minAzimuth;
